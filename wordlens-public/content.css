@@ -1,0 +1,400 @@
+/* ================================================================
+   WordLens — Content Script Styles
+   In-page floating icon & popup card.
+   All selectors use #wordlens- prefix to avoid collisions.
+   Critical layout props use !important to resist page overrides.
+   ================================================================ */
+
+/* ---- Floating Icon ---- */
+#wordlens-floating-icon {
+  position: fixed !important;
+  z-index: 2147483647 !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  background: #ff6b4a !important;
+  color: #fff !important;
+  font-size: 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  box-shadow: 0 3px 14px rgba(255, 107, 74, 0.45),
+    0 1px 4px rgba(0, 0, 0, 0.12) !important;
+  transition: transform 0.18s ease, box-shadow 0.18s ease !important;
+  user-select: none !important;
+  animation: wordlens-icon-in 0.15s ease-out !important;
+  line-height: 1 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  box-sizing: border-box !important;
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', sans-serif !important;
+}
+
+#wordlens-floating-icon:hover {
+  transform: scale(1.15) !important;
+  box-shadow: 0 5px 18px rgba(255, 107, 74, 0.6),
+    0 2px 6px rgba(0, 0, 0, 0.18) !important;
+}
+
+@keyframes wordlens-icon-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ---- Popup Card ---- */
+#wordlens-popup {
+  position: fixed !important;
+  z-index: 2147483647 !important;
+  width: 360px !important;
+  max-height: 500px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  background: #ffffff !important;
+  border-radius: 14px !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18),
+    0 2px 10px rgba(0, 0, 0, 0.08) !important;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    Arial, sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+  color: #1a1a2e !important;
+  animation: wordlens-popup-in 0.22s ease-out !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
+}
+
+/* Size variants */
+#wordlens-popup.wordlens-size-small {
+  width: 300px !important;
+  font-size: 13px !important;
+}
+#wordlens-popup.wordlens-size-medium {
+  width: 360px !important;
+  font-size: 14px !important;
+}
+#wordlens-popup.wordlens-size-large {
+  width: 420px !important;
+  font-size: 15px !important;
+}
+
+@keyframes wordlens-popup-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Scrollbar */
+#wordlens-popup::-webkit-scrollbar {
+  width: 5px;
+}
+#wordlens-popup::-webkit-scrollbar-track {
+  background: transparent;
+}
+#wordlens-popup::-webkit-scrollbar-thumb {
+  background: #d0d0d0;
+  border-radius: 3px;
+}
+
+/* ---- Popup Header ---- */
+#wordlens-popup .wordlens-popup-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 13px 16px !important;
+  background: linear-gradient(135deg, #ff6b4a 0%, #ff8a65 100%) !important;
+  color: #fff !important;
+  border-radius: 14px 14px 0 0 !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1 !important;
+  margin: 0 !important;
+  border: none !important;
+}
+
+#wordlens-popup .wordlens-popup-word {
+  font-weight: 700 !important;
+  font-size: 1.15em !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  max-width: 220px !important;
+  color: #fff !important;
+}
+
+#wordlens-popup .wordlens-popup-header-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+#wordlens-popup .wordlens-speak-btn,
+#wordlens-popup .wordlens-close-btn {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border: none !important;
+  color: #fff !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  font-size: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background 0.15s ease !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  font-family: 'Segoe UI', Arial, sans-serif !important;
+}
+
+#wordlens-popup .wordlens-speak-btn:hover,
+#wordlens-popup .wordlens-close-btn:hover {
+  background: rgba(255, 255, 255, 0.38) !important;
+}
+
+/* ---- Popup Body ---- */
+#wordlens-popup .wordlens-popup-body {
+  padding: 14px 16px 16px !important;
+}
+
+/* ---- Loading State ---- */
+#wordlens-popup .wordlens-loading {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  padding: 36px 0 !important;
+  color: #999 !important;
+  font-size: 13px !important;
+}
+
+#wordlens-popup .wordlens-spinner {
+  width: 22px !important;
+  height: 22px !important;
+  border: 3px solid #eee !important;
+  border-top-color: #ff6b4a !important;
+  border-radius: 50% !important;
+  animation: wordlens-spin 0.65s linear infinite !important;
+  box-sizing: border-box !important;
+}
+
+@keyframes wordlens-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- Sections ---- */
+#wordlens-popup .wordlens-section {
+  margin-bottom: 14px !important;
+}
+
+#wordlens-popup .wordlens-section:last-child {
+  margin-bottom: 0 !important;
+}
+
+#wordlens-popup .wordlens-section-label {
+  font-size: 0.72em !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.07em !important;
+  color: #ff6b4a !important;
+  margin-bottom: 5px !important;
+}
+
+/* ---- Translation ---- */
+#wordlens-popup .wordlens-translation-text {
+  font-size: 1.18em !important;
+  font-weight: 600 !important;
+  color: #1a1a2e !important;
+  padding: 4px 0 !important;
+}
+
+/* ---- Phonetic ---- */
+#wordlens-popup .wordlens-phonetic {
+  font-style: italic !important;
+  color: #666 !important;
+}
+
+/* ---- Meanings ---- */
+#wordlens-popup .wordlens-meaning-group {
+  margin-bottom: 10px !important;
+}
+
+#wordlens-popup .wordlens-pos-tag {
+  display: inline-block !important;
+  background: #fff0ec !important;
+  color: #ff6b4a !important;
+  font-size: 0.78em !important;
+  font-weight: 600 !important;
+  padding: 2px 9px !important;
+  border-radius: 4px !important;
+  margin-bottom: 4px !important;
+  text-transform: capitalize !important;
+  border: none !important;
+}
+
+#wordlens-popup .wordlens-definition {
+  padding-left: 11px !important;
+  border-left: 2px solid #ffe0d6 !important;
+  margin: 5px 0 !important;
+  color: #333 !important;
+  font-size: 0.94em !important;
+}
+
+/* ---- Synonyms ---- */
+#wordlens-popup .wordlens-synonyms {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+}
+
+#wordlens-popup .wordlens-synonym-chip {
+  display: inline-block !important;
+  background: #f4f5f8 !important;
+  color: #444 !important;
+  font-size: 0.82em !important;
+  padding: 3px 11px !important;
+  border-radius: 14px !important;
+  border: 1px solid #e2e5eb !important;
+  transition: background 0.15s ease !important;
+  cursor: default !important;
+}
+
+#wordlens-popup .wordlens-synonym-chip:hover {
+  background: #e8eaf0 !important;
+}
+
+/* ---- Origin / Etymology ---- */
+#wordlens-popup .wordlens-origin {
+  font-style: italic !important;
+  color: #555 !important;
+  font-size: 0.92em !important;
+  padding: 3px 0 !important;
+  line-height: 1.55 !important;
+}
+
+/* ---- Know More (collapsible) ---- */
+#wordlens-popup .wordlens-know-more {
+  margin-bottom: 12px !important;
+  border-top: 1px solid #f0f0f0 !important;
+  padding-top: 6px !important;
+}
+
+#wordlens-popup .wordlens-km-toggle {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  background: none !important;
+  border: none !important;
+  color: #ff6b4a !important;
+  font-size: 0.82em !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  padding: 4px 2px !important;
+  font-family: inherit !important;
+  transition: color 0.15s ease !important;
+}
+
+#wordlens-popup .wordlens-km-toggle:hover {
+  color: #e0553a !important;
+}
+
+#wordlens-popup .wordlens-km-chevron {
+  font-size: 1.1em !important;
+  line-height: 1 !important;
+  transition: transform 0.15s ease !important;
+}
+
+#wordlens-popup .wordlens-km-content {
+  padding: 8px 0 4px !important;
+}
+
+#wordlens-popup .wordlens-km-item {
+  margin-bottom: 10px !important;
+}
+
+#wordlens-popup .wordlens-km-item:last-child {
+  margin-bottom: 0 !important;
+}
+
+#wordlens-popup .wordlens-km-usage-line {
+  font-size: 0.92em !important;
+  color: #555 !important;
+  margin-bottom: 4px !important;
+}
+
+#wordlens-popup .wordlens-km-example {
+  font-size: 0.88em !important;
+  color: #666 !important;
+  margin-top: 5px !important;
+  padding-left: 10px !important;
+  border-left: 2px solid #ffe0d6 !important;
+  line-height: 1.5 !important;
+}
+
+#wordlens-popup .wordlens-km-example em {
+  color: #444 !important;
+}
+
+/* ---- Deep Dive ---- */
+#wordlens-popup .wordlens-deep-dive {
+  border-top: 1px solid #f0f0f0 !important;
+  padding-top: 12px !important;
+}
+
+#wordlens-popup .wordlens-deep-links {
+  display: flex !important;
+  gap: 8px !important;
+}
+
+#wordlens-popup .wordlens-deep-links a {
+  font-size: 0.82em !important;
+  color: #ff6b4a !important;
+  text-decoration: none !important;
+  padding: 5px 12px !important;
+  border: 1px solid #ff6b4a !important;
+  border-radius: 6px !important;
+  transition: all 0.15s ease !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}
+
+#wordlens-popup .wordlens-deep-links a:hover {
+  background: #ff6b4a !important;
+  color: #fff !important;
+}
+
+/* ---- Fallback (no data) ---- */
+#wordlens-popup .wordlens-fallback {
+  text-align: center !important;
+  padding: 24px 10px !important;
+  color: #888 !important;
+}
+
+#wordlens-popup .wordlens-fallback-icon {
+  font-size: 30px !important;
+  margin-bottom: 8px !important;
+}
+
+#wordlens-popup .wordlens-fallback-hint {
+  font-size: 0.85em !important;
+  color: #aaa !important;
+  margin-top: 6px !important;
+}

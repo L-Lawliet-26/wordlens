@@ -1,0 +1,503 @@
+/* ================================================================
+   WordLens — Toolbar Popup Panel Styles
+   Dark-Reader-inspired flat design with its own visual identity.
+   
+   Design Tokens
+   ─────────────
+   Background:      #1a1f2e (base), #222840 (raised surface)
+   Accent:          #ff6b4a (coral-orange)
+   Borders:         #3a4358, 2px solid
+   Text primary:    #e8eaf0
+   Text secondary:  #8b95a8
+   Radius:          6px (boxy, not pill)
+   ================================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 320px;
+  min-height: 460px;
+  background: #1a1f2e;
+  color: #e8eaf0;
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+  overflow-x: hidden;
+}
+
+.wl-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 460px;
+}
+
+/* ================================================================
+   HEADER
+   ================================================================ */
+
+.wl-header {
+  padding: 14px 16px 10px;
+  border-bottom: 2px solid #3a4358;
+}
+
+.wl-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wl-logo-icon {
+  font-size: 22px;
+  color: #ff6b4a;
+  line-height: 1;
+}
+
+.wl-logo-text {
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #e8eaf0;
+}
+
+/* ================================================================
+   SITE ROW
+   ================================================================ */
+
+.wl-site-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 2px solid #3a4358;
+}
+
+.wl-site-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #222840;
+  border: 2px solid #3a4358;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: #8b95a8;
+  max-width: 155px;
+  overflow: hidden;
+}
+
+.wl-site-check {
+  color: #4caf50;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.wl-site-host {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ================================================================
+   TOGGLE GROUP (On/Off buttons)
+   ================================================================ */
+
+.wl-toggle-group {
+  display: flex;
+  border: 2px solid #3a4358;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.wl-toggle-btn {
+  background: #222840;
+  color: #8b95a8;
+  border: none;
+  padding: 5px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.wl-toggle-btn + .wl-toggle-btn {
+  border-left: 2px solid #3a4358;
+}
+
+.wl-toggle-btn.active {
+  background: #ff6b4a;
+  color: #fff;
+}
+
+.wl-toggle-btn:hover:not(.active) {
+  background: #2a3050;
+  color: #c0c6d4;
+}
+
+.wl-toggle-btn.wl-small {
+  padding: 4px 12px;
+  font-size: 11px;
+}
+
+/* ================================================================
+   HINT
+   ================================================================ */
+
+.wl-hint {
+  padding: 8px 16px;
+  font-size: 11px;
+  color: #8b95a8;
+  border-bottom: 2px solid #3a4358;
+}
+
+/* ================================================================
+   TABS
+   ================================================================ */
+
+.wl-tabs {
+  display: flex;
+  border-bottom: 2px solid #3a4358;
+}
+
+.wl-tab {
+  flex: 1;
+  background: #222840;
+  color: #8b95a8;
+  border: none;
+  padding: 9px 0;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  font-family: inherit;
+  position: relative;
+}
+
+.wl-tab + .wl-tab {
+  border-left: 2px solid #3a4358;
+}
+
+.wl-tab.active {
+  background: #1a1f2e;
+  color: #ff6b4a;
+}
+
+.wl-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #ff6b4a;
+}
+
+.wl-tab:hover:not(.active) {
+  background: #2a3050;
+  color: #c0c6d4;
+}
+
+/* ================================================================
+   TAB CONTENT
+   ================================================================ */
+
+.wl-tab-content {
+  display: none;
+  padding: 12px 16px 16px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.wl-tab-content.active {
+  display: block;
+}
+
+/* ================================================================
+   SETTINGS
+   ================================================================ */
+
+.wl-setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid #2a3050;
+}
+
+.wl-setting-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #c0c6d4;
+}
+
+.wl-select {
+  background: #222840;
+  color: #e8eaf0;
+  border: 2px solid #3a4358;
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  max-width: 155px;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238b95a8'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: 24px;
+}
+
+.wl-select:focus {
+  outline: none;
+  border-color: #ff6b4a;
+}
+
+.wl-select option {
+  background: #222840;
+  color: #e8eaf0;
+}
+
+/* ================================================================
+   STEPPER
+   ================================================================ */
+
+.wl-stepper {
+  display: flex;
+  align-items: center;
+  border: 2px solid #3a4358;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.wl-stepper-btn {
+  background: #222840;
+  color: #8b95a8;
+  border: none;
+  padding: 4px 11px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+  line-height: 1;
+}
+
+.wl-stepper-btn:hover {
+  background: #2a3050;
+  color: #ff6b4a;
+}
+
+.wl-stepper-value {
+  padding: 4px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #e8eaf0;
+  min-width: 65px;
+  text-align: center;
+  border-left: 2px solid #3a4358;
+  border-right: 2px solid #3a4358;
+}
+
+/* ================================================================
+   SITE-SPECIFIC BUTTON
+   ================================================================ */
+
+.wl-site-btn {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  padding: 9px 12px;
+  background: #222840;
+  color: #8b95a8;
+  border: 2px solid #3a4358;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+  font-family: inherit;
+}
+
+.wl-site-btn:hover {
+  border-color: #ff6b4a;
+  color: #ff6b4a;
+}
+
+/* ================================================================
+   HISTORY
+   ================================================================ */
+
+.wl-history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #2a3050;
+  margin-bottom: 8px;
+}
+
+.wl-history-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #c0c6d4;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.wl-history-clear {
+  background: transparent;
+  color: #ff6b4a;
+  border: 1px solid #ff6b4a;
+  border-radius: 4px;
+  padding: 2px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.wl-history-clear:hover {
+  background: #ff6b4a;
+  color: #fff;
+}
+
+.wl-history-list {
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.wl-history-list::-webkit-scrollbar {
+  width: 4px;
+}
+.wl-history-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.wl-history-list::-webkit-scrollbar-thumb {
+  background: #3a4358;
+  border-radius: 2px;
+}
+
+.wl-history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  border-bottom: 1px solid #222840;
+  transition: background 0.1s ease;
+}
+
+.wl-history-item:hover {
+  background: rgba(255, 107, 74, 0.04);
+}
+
+.wl-history-word {
+  font-weight: 600;
+  color: #e8eaf0;
+  font-size: 12px;
+  max-width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wl-history-translation {
+  font-size: 11px;
+  color: #8b95a8;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.wl-history-empty {
+  text-align: center;
+  padding: 32px 14px;
+  color: #8b95a8;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.wl-empty-icon {
+  font-size: 28px;
+}
+
+/* ================================================================
+   MORE TAB
+   ================================================================ */
+
+.wl-info-card {
+  background: #222840;
+  border: 2px solid #3a4358;
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+
+.wl-info-title {
+  font-weight: 700;
+  font-size: 13px;
+  color: #ff6b4a;
+  margin-bottom: 6px;
+}
+
+.wl-info-card p {
+  font-size: 12px;
+  color: #8b95a8;
+  line-height: 1.55;
+}
+
+.wl-more-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.wl-action-btn {
+  flex: 1;
+  background: #222840;
+  color: #c0c6d4;
+  border: 2px solid #3a4358;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+  font-family: inherit;
+}
+
+.wl-action-btn:hover {
+  border-color: #ff6b4a;
+  color: #ff6b4a;
+}
+
+.wl-tip-box {
+  background: #222840;
+  border: 2px solid #3a4358;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 12px;
+  color: #8b95a8;
+  margin-bottom: 10px;
+  line-height: 1.55;
+}
+
+.wl-footer {
+  text-align: center;
+  font-size: 10px;
+  color: #555d70;
+  padding: 12px 0 6px;
+  border-top: 1px solid #2a3050;
+  line-height: 1.6;
+}

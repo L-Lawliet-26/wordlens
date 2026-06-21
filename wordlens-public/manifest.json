@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "WordLens",
+  "version": "1.2.0",
+  "description": "Select any text to instantly translate, hear pronunciation, explore meanings, synonyms, and etymology — all in a sleek popup.",
+  "author": "L-Lawliet-26 (Aryan)",
+  "homepage_url": "https://github.com/L-Lawliet-26/wordlens",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "contextMenus",
+    "storage",
+    "https://api.mymemory.translated.net/*",
+    "https://api.dictionaryapi.dev/*"
+  ],
+  "browser_action": {
+    "default_icon": {
+      "48": "icons/icon-48.png",
+      "96": "icons/icon-96.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "WordLens Settings"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

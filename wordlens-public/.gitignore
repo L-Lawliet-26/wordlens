@@ -1,0 +1,19 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
+
+# Build / packaging output
+*.zip
+*.xpi
+web-ext-artifacts/
+
+# Node (if any tooling gets added later)
+node_modules/
+npm-debug.log
+
+# Local env/secrets (none currently used, but good practice)
+.env
